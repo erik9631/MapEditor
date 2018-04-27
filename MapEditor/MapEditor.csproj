@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\ApplicationController.cs" />
+    <Compile Include="GUI\AppButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Interfaces\AppComponent.cs" />
     <Compile Include="GUI\MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\Events\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

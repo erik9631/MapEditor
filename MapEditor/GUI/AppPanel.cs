@@ -6,17 +6,25 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Drawing;
 using GUI;
+using MapEditor.GUI.Interfaces;
 
 namespace MapEditor.GUI
 {
-    class AppPanel : FlowLayoutPanel
+    class AppPanel : Panel, AppComponent
     {
-        public AppPanel(int width, int height, MainFrame owner)
+        public AppPanel(int width, int height, Control owner)
         {
             Width = width;
             Height = height;
             BackColor = Color.LawnGreen;
-            owner.addComponent(this);
+            owner.Controls.Add(this);
         }
+
+        public void AddControl(Control owner)
+        {
+            this.Invoke( new Action(() => this.Controls.Add(owner)));
+        }
+
+
     }
 }

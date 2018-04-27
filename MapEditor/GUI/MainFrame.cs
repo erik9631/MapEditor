@@ -9,41 +9,16 @@ using MapEditor.GUI;
 
 namespace GUI
 {
-    delegate void Test(Control control);
+    delegate void Test(Form control);
+
     class MainFrame : Form
     {
-        Form mainFrame;
-        AppPanel panel;
-
-        Thread thread;
         public MainFrame(int width, int height)
         {
-            createFrame(width, height);
-            panel = new AppPanel(width, height, this);
+            this.Width = width;
+            this.Height = height;
+            this.Show();
         }
 
-        private void createFrame(int width, int height)
-        {
-            Console.WriteLine("asdasdasd");
-            ManualResetEvent manual = new ManualResetEvent(false);
-            thread = new Thread(() =>
-            {
-                mainFrame = new Form();
-                mainFrame.Width = width;
-                mainFrame.Height = height;
-                mainFrame.Show();
-                manual.Set();
-                Application.Run();
-            });
-            thread.Start();
-            manual.WaitOne();
-
-        }
-
-        public void addComponent(Control control)
-        {
-            Test method = mainFrame.Controls.Add;
-            mainFrame.Invoke(method, control);
-        }
     }
 }
