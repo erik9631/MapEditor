@@ -9,7 +9,10 @@ namespace MapEditor.GUI
 {
     static class ApplicationController
     {
-        static MainFrame ApplicationFrame;
+        private static MainFrame applicationFrame;
+        private static AppPanel applicationPanel;
+
+        
 
     }
 }
